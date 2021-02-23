@@ -153,6 +153,7 @@ function init() {
 
   var flareColor = new THREE.Color(0xffaacc);
 
+  // 镜头光晕
   var lensFlare = new THREE.Lensflare();
 
   lensFlare.addElement(new THREE.LensflareElement(textureFlare0, 350, 0.0, flareColor));
@@ -160,7 +161,7 @@ function init() {
   lensFlare.addElement(new THREE.LensflareElement(textureFlare3, 70, 0.7, flareColor));
   lensFlare.addElement(new THREE.LensflareElement(textureFlare3, 120, 0.9, flareColor));
   lensFlare.addElement(new THREE.LensflareElement(textureFlare3, 70, 1.0, flareColor));
-  spotLight.add(lensFlare);
+  spotLight.add(lensFlare); // 直接把光晕放到光源处
 
   render();
 

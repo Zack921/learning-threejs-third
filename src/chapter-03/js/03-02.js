@@ -33,7 +33,7 @@ function init() {
   spotLight.position.set(-40, 60, -10);
   spotLight.castShadow = true;
   spotLight.shadow.camera.near = 1;
-  spotLight.shadow.camera.far = 100;
+  spotLight.shadow.camera.far = 10;
   spotLight.target = plane;
   spotLight.distance = 0;
   spotLight.angle = 0.4;

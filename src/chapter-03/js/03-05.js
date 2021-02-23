@@ -74,6 +74,7 @@ function init() {
   var target = new THREE.Object3D();
   target.position = new THREE.Vector3(5, 0, 0);
 
+  // 指定天空颜色 地面颜色 光强
   var hemiLight = new THREE.HemisphereLight(0x0000ff, 0x00ff00, 0.6);
   hemiLight.position.set(0, 500, 0);
   scene.add(hemiLight);

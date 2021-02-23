@@ -43,6 +43,7 @@ function init() {
   spotLight0.lookAt(plane);
   scene.add(spotLight0);
 
+  // 颜色 光强 宽 高
   var areaLight1 = new THREE.RectAreaLight(0xff0000, 500, 4, 10);
   areaLight1.position.set(-10, 10, -35);
   scene.add(areaLight1);
