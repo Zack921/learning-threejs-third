@@ -18,6 +18,7 @@ function init() {
 
   // call the render function
   var step = 0;
+  // 类似MeshStandardMaterial,提供了对反光度更多控制
   var material = new THREE.MeshPhysicalMaterial({color: 0x7777ff})
   var controls = new function () {
     this.color = material.color.getStyle();

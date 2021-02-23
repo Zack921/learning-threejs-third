@@ -23,9 +23,9 @@ function init() {
   var cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
   var planeGeometry = new THREE.PlaneGeometry(14, 14, 4, 4);
 
-
+  // 可自发光的暗淡材质
   var meshMaterial = new THREE.MeshLambertMaterial({
-    color: 0x7777ff
+    color: 0x7777ff // 环境色
   });
   var sphere = new THREE.Mesh(sphereGeometry, meshMaterial);
   var cube = new THREE.Mesh(cubeGeometry, meshMaterial);

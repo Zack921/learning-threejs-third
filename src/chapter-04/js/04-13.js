@@ -33,16 +33,17 @@ function init() {
   });
 
   lines.colors = colors;
+  // 可以产生虚线效果
   var material = new THREE.LineDashedMaterial({
     vertexColors: true,
     color: 0xffffff,
-    dashSize: 2,
-    gapSize: 2,
+    dashSize: 2, // 虚线段长度
+    gapSize: 1, // 虚线间隔宽度
     scale: 0.1
   });
 
   var line = new THREE.Line(lines, material);
-  line.computeLineDistances();
+  line.computeLineDistances(); // 计算线段顶点之间的距离
   line.position.set(25, -30, -60);
   scene.add(line);
 

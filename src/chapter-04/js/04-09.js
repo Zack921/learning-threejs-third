@@ -18,6 +18,7 @@ function init() {
 
   // call the render function
   var step = 0;
+  // 采用更加正确的物理计算，能更好表现塑料质感和金属质感
   var material = new THREE.MeshStandardMaterial({color: 0x7777ff})
   var controls = new function () {
     this.color = material.color.getStyle();
@@ -35,8 +36,8 @@ function init() {
   spGui.addColor(controls, 'emissive').onChange(function (e) {
     material.emissive = new THREE.Color(e);
   });
-  spGui.add(material, 'metalness', 0, 1, 0.01);
-  spGui.add(material, 'roughness', 0, 1, 0.01);
+  spGui.add(material, 'metalness', 0, 1, 0.01); // 金属感 0-塑料 1-金属
+  spGui.add(material, 'roughness', 0, 1, 0.01); // 粗糙程度 决定表面对入射光的漫反射程度 0-镜面反射，1-完全漫反射
   spGui.add(material, 'wireframe');
   spGui.add(material, 'wireframeLinewidth', 0, 20);
 

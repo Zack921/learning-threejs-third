@@ -74,17 +74,24 @@ function init() {
     // color: 0xffffff
   // }));
 
-  for (var x = 0; x < 3; x++) {
-    for (var y = 0; y < 3; y++) {
-      for (var z = 0; z < 3; z++) {
-        var cubeGeom = new THREE.BoxGeometry(2.9, 2.9, 2.9);
-        var cube = new THREE.Mesh(cubeGeom, mats);
-        cube.position.set(x * 3 - 3, y * 3 - 3, z * 3 - 3);
+  // for (var x = 0; x < 3; x++) {
+  //   for (var y = 0; y < 3; y++) {
+  //     for (var z = 0; z < 3; z++) {
+  //       var cubeGeom = new THREE.BoxGeometry(2.9, 2.9, 2.9);
+  //       var cube = new THREE.Mesh(cubeGeom, mats);
+  //       cube.position.set(x * 3 - 3, y * 3 - 3, z * 3 - 3);
+  //       console.log('cube: ', cube);
 
-        group.add(cube);
-      }
-    }
-  }
+  //       group.add(cube);
+  //     }
+  //   }
+  // }
+  var cubeGeom = new THREE.BoxGeometry(2.9, 2.9, 2.9);
+  var cube = new THREE.Mesh(cubeGeom, mats); // 直接给六个材质即可，每个面上的两个三角形引用同一个材质索引
+  cube.position.set(-3, -3, -3);
+  console.log('cube: ', cube);
+
+  group.add(cube);
 
 
   group.scale.copy(new THREE.Vector3(2,2,2))
@@ -101,8 +108,6 @@ function init() {
   gui.add(controls, 'rotationSpeed', 0, 0.5);
 
   render();
-
-  debugger;
   
   function render() {
     stats.update();

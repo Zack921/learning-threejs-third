@@ -21,7 +21,7 @@ function init() {
   scene.add(spotLight);
 
   // get the turtle
-  var points = gosper(4, 60);
+  var points = gosper(4, 60); // 生成 gosper 曲线需要的顶点
 
 
   var lines = new THREE.Geometry();
@@ -35,12 +35,14 @@ function init() {
   });
 
   lines.colors = colors;
+  // 线段材质
   var material = new THREE.LineBasicMaterial({
     opacity: 1.0,
     linewidth: 1,
     vertexColors: THREE.VertexColors
   });
 
+  // 生成线段
   var line = new THREE.Line(lines, material);
   line.position.set(25, -30, -60);
   scene.add(line);

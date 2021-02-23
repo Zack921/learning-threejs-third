@@ -11,6 +11,10 @@ function init() {
   camera.position.set(-50, 40, 50);
   camera.lookAt(scene.position);
 
+  // var ambiColor = "#ffffff";
+  // var ambientLight = new THREE.AmbientLight(ambiColor);
+  // scene.add(ambientLight);
+
   // call the render function
   var step = 0;
 
@@ -40,19 +44,23 @@ function init() {
       var cubeMaterial = new THREE.MeshDepthMaterial();
       var colorMaterial = new THREE.MeshBasicMaterial({
         color: controls.color,
-        transparent: true,
-        blending: THREE.MultiplyBlending
+        transparent: true, // 指定为true才会检查blending属性
+        // blending - 材质如何与背景相互作用，这里的背景指 MeshDepthMaterial 材质渲染的方块
+        // blending: THREE.MultiplyBlending, // 两个独立的mesh，设置后混合了，多余的部分也不会再渲染了
       });
       var cube = new THREE.SceneUtils.createMultiMaterialObject(cubeGeometry, [colorMaterial,
         cubeMaterial
       ]);
-      cube.children[1].scale.set(0.99, 0.99, 0.99);
+      cube.children[1].scale.set(0.99, 0.99, 0.99); // 当两个物体重叠时，且有一个为透明物体时，缩小非透明物体可避免闪烁
       cube.castShadow = true;
 
       // position the cube randomly in the scene
       cube.position.x = -60 + Math.round((Math.random() * 100));
       cube.position.y = Math.round((Math.random() * 10));
       cube.position.z = -100 + Math.round((Math.random() * 150));
+      console.log('cube: ', cube);
+
+      cube.children[0].position.x -= 2;
 
       // add the cube to the scene
       scene.add(cube);

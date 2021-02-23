@@ -50,19 +50,20 @@ function init() {
   for (var f = 0, fl = sphere.geometry.faces.length; f < fl; f++) {
     var face = sphere.geometry.faces[f];
     var centroid = new THREE.Vector3(0, 0, 0);
+    // 把构成平面的三个顶点相加再/3得到中心点
     centroid.add(sphere.geometry.vertices[face.a]);
     centroid.add(sphere.geometry.vertices[face.b]);
     centroid.add(sphere.geometry.vertices[face.c]);
     centroid.divideScalar(3);
 
     var arrow = new THREE.ArrowHelper(
-      face.normal,
-      centroid,
-      2,
+      face.normal, // 法线
+      centroid, // 中心点
+      2, // 长度
       0x3333FF,
       0.5,
       0.5);
-    // sphere.add(arrow);
+    sphere.add(arrow);
   }
 
 

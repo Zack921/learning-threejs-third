@@ -89,6 +89,8 @@ function init() {
       e.castShadow = true
   });
 
+  mesh.children[0].position.x -= 6;
+
   scene.add(mesh);
 
   // add spotlight for the shadows

@@ -18,11 +18,12 @@ function init() {
 
   // call the render function
   var step = 0;
-  var material = new THREE.MeshPhongMaterial({color: 0x7777ff})
+  // 可自发光的带高光的材质
+  var material = new THREE.MeshPhongMaterial({color: 0x7777ff}) // 环境色
   var controls = new function () {
     this.color = material.color.getStyle();
-    this.emissive = material.emissive.getStyle();
-    this.specular = material.specular.getStyle();
+    this.emissive = material.emissive.getStyle(); // 自发光
+    this.specular = material.specular.getStyle(); // 高光颜色，和color相同像金属，灰色像塑料
   };
 
   var gui = new dat.GUI();
@@ -39,7 +40,7 @@ function init() {
   spGui.addColor(controls, 'specular').onChange(function (e) {
     material.specular = new THREE.Color(e);
   });
-  spGui.add(material, 'shininess', 0, 100, )
+  spGui.add(material, 'shininess', 0, 100, ) // 高光度
   spGui.add(material, 'wireframe');
   spGui.add(material, 'wireframeLinewidth', 0, 20);
 

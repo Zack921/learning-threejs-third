@@ -113,7 +113,7 @@ function init() {
     meshMaterial.wireframeLinecap = e
   });
 
-  loadGopher(meshMaterial).then(function(gopher) {
+  loadGopher(meshMaterial).then(function(gopher) { // gopher is mesh
     gopher.scale.x = 4;
     gopher.scale.y = 4;
     gopher.scale.z = 4;

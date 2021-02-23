@@ -455,7 +455,7 @@ function addBasicMaterialSettings(gui, controls, material, name) {
 
     folder.add(controls.material, 'colorWrite');
     folder.add(controls.material, 'flatShading').onChange(function(shading) {
-        controls.material.flatShading = shading;
+        controls.material.flatShading = shading; // 默认就是smoothShading - 光滑过渡
         controls.material.needsUpdate = true;
     });
     folder.add(controls.material, 'premultipliedAlpha');

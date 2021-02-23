@@ -110,6 +110,7 @@ function init() {
     uniforms.resolution.value.x = window.innerWidth;
     uniforms.resolution.value.y = window.innerHeight;
 
+    // 自定义着色器生成材质
     var meshMaterial = new THREE.ShaderMaterial({
       uniforms: uniforms,
       vertexShader: vertShader,
