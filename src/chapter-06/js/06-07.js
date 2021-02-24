@@ -83,6 +83,7 @@ function init() {
               steps: controls.steps
             };
 
+            // 创建三维文字
             var geom = new THREE.TextGeometry("Learning Three.js", options)
             geom.applyMatrix(new THREE.Matrix4().makeScale(0.05,0.05,0.05));
             geom.center();

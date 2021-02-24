@@ -39,7 +39,7 @@ function init() {
   };
 
   radialWave = function (u, v, optionalTarget) {
-
+    // u,v确定一个顶点
     var result = optionalTarget || new THREE.Vector3();
     var r = 50;
 
@@ -95,9 +95,9 @@ function init() {
   
   function render() {
     stats.update();
-    controls.mesh.rotation.y = step+=0.005
-    controls.mesh.rotation.x = step
-    controls.mesh.rotation.z = step
+    // controls.mesh.rotation.y = step+=0.005
+    // controls.mesh.rotation.x = step
+    // controls.mesh.rotation.z = step
 
     // render using requestAnimationFrame
     requestAnimationFrame(render);

@@ -35,7 +35,7 @@ function init() {
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
         var options = {
-          amount: controls.amount,
+          amount: controls.amount,// 深度
           bevelThickness: controls.bevelThickness,
           bevelSize: controls.bevelSize,
           bevelSegments: controls.bevelSegments,
@@ -44,6 +44,7 @@ function init() {
           steps: controls.steps
         };
   
+        // 将二维图形拉伸生成几何体
         var geom = new THREE.ExtrudeGeometry(drawShape(), options);
         geom.applyMatrix(new THREE.Matrix4().makeTranslation(-20, 0, 0));
         geom.applyMatrix(new THREE.Matrix4().makeScale(0.4,0.4,0.4));

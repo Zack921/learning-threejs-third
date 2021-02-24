@@ -91,6 +91,7 @@ function init() {
     });
     // add the points as a group to the scene
     scene.add(spGroup);
+    // 需要先用点生成曲线
     return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), segments, radius, radiusSegments, closed);
   }
 

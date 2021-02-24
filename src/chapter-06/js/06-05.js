@@ -72,10 +72,11 @@ function init() {
   function drawShape() {
 
     var svgString = document.querySelector("#batman-path").getAttribute("d");
-
+    // 利用第三方库d3-threeD.js，将svgs数据转shape
     var shape = transformSVGPathExposed(svgString);
 
     // return the shape
+    console.log('shape: ', shape);
     return shape;
   }
 

@@ -136,6 +136,7 @@ function init() {
     // to set timeout > 1, if not executed immediately.
     setTimeout(function () {
       scene.remove(result);
+      // ThreeBSP为第三方库，用于处理几何体相交，联合，相减
       var sphere1BSP = new ThreeBSP(sphere1);
       var sphere2BSP = new ThreeBSP(sphere2);
       var cube2BSP = new ThreeBSP(cube);
@@ -177,6 +178,7 @@ function init() {
         // do nothing
       } else {
         result = resultBSP.toMesh();
+        // 在执行任意二元操作后，几何体的顶点和面会改变，并且面的法向量也会改变，需要显式地重新计算
         result.geometry.computeFaceNormals();
         result.geometry.computeVertexNormals();
         scene.add(result);

@@ -61,7 +61,7 @@ function init() {
       transparent: false
     });
     points.forEach(function (point) {
-
+      // 为每个顶点生成一个小球体，使顶点可见
       var spGeom = new THREE.SphereGeometry(0.2);
       var spMesh = new THREE.Mesh(spGeom, material);
       spMesh.position.copy(point);
@@ -71,8 +71,9 @@ function init() {
     scene.add(spGroup);
 
     // use the same points to create a convexgeometry
+    // 用随机生成的点构造一个凸包
     var convexGeometry = new THREE.ConvexGeometry(points);
-    convexGeometry.computeVertexNormals();
+    convexGeometry.computeVertexNormals();// 凸包需要手动调用计算法线
     convexGeometry.computeFaceNormals();
     convexGeometry.normalsNeedUpdate = true;
     return convexGeometry;

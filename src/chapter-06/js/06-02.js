@@ -79,6 +79,7 @@ function init() {
     scene.add(spGroup);
 
     // use the same points to create a LatheGeometry
+    // 将顶点构成的样条曲线旋转，得到几何体
     var latheGeometry = new THREE.LatheGeometry(points, segments, phiStart, phiLength);
     return latheGeometry;
   }
