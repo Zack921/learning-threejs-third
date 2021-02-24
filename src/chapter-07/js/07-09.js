@@ -61,8 +61,8 @@ function init() {
     });
 
     // we have 1 row, with five sprites
-    spriteMaterial.map.offset = new THREE.Vector2(0.2 * spriteNumber, 0);
-    spriteMaterial.map.repeat = new THREE.Vector2(1 / 5, 1);
+    spriteMaterial.map.offset = new THREE.Vector2(0.2 * spriteNumber, 0); // 设置纹理在x轴上的偏移量 范围：0～1
+    spriteMaterial.map.repeat = new THREE.Vector2(1 / 5, 1); // 针对x轴放大纹理，一共是5个图像平铺
     spriteMaterial.blending = THREE.AdditiveBlending;
     // make sure the object is always rendered at the front
     spriteMaterial.depthTest = false;
@@ -103,7 +103,8 @@ function init() {
     requestAnimationFrame(render);
 
     webGLRenderer.render(scene, camera);
-    webGLRenderer.autoClear = false;
+    webGLRenderer.autoClear = false;// 不让webgl在渲染粒子前清空画布
+    // 使用单独的场景和相机来渲染hud
     webGLRenderer.render(sceneOrtho, cameraOrtho);
 
   }

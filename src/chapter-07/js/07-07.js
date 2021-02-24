@@ -38,7 +38,7 @@ function init() {
 
   function createPointCloud(size, transparent, opacity, sizeAttenuation, color) {
 
-
+    // 雨滴纹理
     var texture = new THREE.TextureLoader().load("../../assets/textures/particles/raindrop-3.png");
     var geom = new THREE.Geometry();
 
@@ -47,9 +47,10 @@ function init() {
       transparent: transparent,
       opacity: opacity,
       map: texture,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.AdditiveBlending, // 在画新像素时背景像素的颜色会被添加到新像素上
       sizeAttenuation: sizeAttenuation,
-      color: color
+      color: color,
+      // vertexColors: true // 为true 表示使用顶点对应的color，而不是PointsMaterial设置的color
     });
 
 
@@ -59,11 +60,12 @@ function init() {
         Math.random() * range - range / 2,
         Math.random() * range * 1.5,
         // Math.random() * range - range / 2
-        1 + (i/100)
+        1 + (i/100) // 保证后加入的粒子总是在最上面
       )
       particle.velocityY = 0.1 + Math.random() / 5;
       particle.velocityX = (Math.random() - 0.5) / 3;
       geom.vertices.push(particle);
+      // geom.colors.push(new THREE.Color(0,0,255));
     }
 
     cloud = new THREE.Points(geom, material);

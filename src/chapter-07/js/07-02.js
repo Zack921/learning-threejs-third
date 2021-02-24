@@ -35,7 +35,7 @@ function init() {
         geom.colors.push(new THREE.Color(Math.random() * 0xffffff));
       }
     }
-
+    // 只要维护一个Points对象
     var cloud = new THREE.Points(geom, material);
     scene.add(cloud);
   }

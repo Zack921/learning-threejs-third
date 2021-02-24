@@ -55,7 +55,7 @@ function init() {
       opacity: opacity,
       map: texture,
       blending: THREE.AdditiveBlending,
-      depthWrite: false,
+      depthWrite: false, // 保证粒子不重叠
       sizeAttenuation: sizeAttenuation,
       color: color
     });

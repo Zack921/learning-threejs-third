@@ -38,7 +38,7 @@ function init() {
     // we have 1 row, with five sprites
     spriteMaterial.map.offset = new THREE.Vector2(0.2 * spriteNumber, 0);
     spriteMaterial.map.repeat = new THREE.Vector2(1 / 5, 1);
-    spriteMaterial.depthTest = false;
+    spriteMaterial.depthTest = false; // 避免重叠
 
     spriteMaterial.blending = THREE.AdditiveBlending;
 
@@ -57,7 +57,7 @@ function init() {
   function render() {
 
     stats.update();
-    group.rotation.x +=0.01;
+    group.rotation.y +=0.01;
 
     requestAnimationFrame(render);
     webGLRenderer.render(scene, camera);

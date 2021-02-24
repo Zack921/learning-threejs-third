@@ -55,7 +55,7 @@ function init() {
       size: size,
       transparent: transparent,
       opacity: opacity,
-      vertexColors: vertexColors,
+      vertexColors: vertexColors,// 为true 表示使用顶点对应的color，而不是PointsMaterial设置的color
 
       sizeAttenuation: sizeAttenuation,
       color: new THREE.Color(colorValue)

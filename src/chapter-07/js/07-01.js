@@ -22,14 +22,12 @@ function init() {
   render();
 
   function createSprites() {
-
-
     for (var x = -15; x < 15; x++) {
       for (var y = -10; y < 10; y++) {
         var material = new THREE.SpriteMaterial({
           color: Math.random() * 0xffffff
         });
-
+        // 创建粒子 需要维护多个Sprite对象
         var sprite = new THREE.Sprite(material);
         sprite.position.set(x * 4, y * 4, 0);
         scene.add(sprite);

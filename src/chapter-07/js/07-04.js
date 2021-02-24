@@ -61,6 +61,7 @@ function init() {
   render();
 
   function createSprites() {
+    // 配合CanvasRenderer使用
     var material = new THREE.SpriteCanvasMaterial({
       program: getTexture
     });

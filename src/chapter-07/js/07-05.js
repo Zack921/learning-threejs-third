@@ -43,8 +43,8 @@ function init() {
       size: size,
       transparent: transparent,
       opacity: opacity,
-      map: createGhostTexture(),
-      sizeAttenuation: sizeAttenuation,
+      map: createGhostTexture(), // 使用canvas画布的输出作为粒子的纹理 js/util.js
+      sizeAttenuation: sizeAttenuation, // 近大远小
       color: color
     });
 
