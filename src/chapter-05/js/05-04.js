@@ -25,6 +25,7 @@ function init() {
     // redraw function, updates the control UI and recreates the geometry.
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+        // 自定义二维图形 curveSegments决定曲线平滑度
         return new THREE.ShapeGeometry(drawShape(), self.curveSegments).center();
       });
     };
@@ -71,7 +72,7 @@ function drawShape() {
   // the top of the figure, curve to the right
   shape.bezierCurveTo(15, 25, 25, 25, 30, 40);
 
-  // spline back down
+  // spline back down 样条曲线
   shape.splineThru(
     [new THREE.Vector2(32, 30),
       new THREE.Vector2(28, 20),
@@ -81,6 +82,7 @@ function drawShape() {
   // curve at the bottom
   shape.quadraticCurveTo(20, 15, 10, 10);
 
+  // 以下开始打孔
   // add 'eye' hole one
   var hole1 = new THREE.Path();
   hole1.absellipse(16, 24, 2, 3, 0, Math.PI * 2, true);

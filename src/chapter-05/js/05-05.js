@@ -33,6 +33,7 @@ function init() {
     // redraw function, updates the control UI and recreates the geometry.
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+        // 长方体：宽，高，深度，沿x轴将面分成几份
         return new THREE.BoxGeometry(controls.width, controls.height, controls.depth, Math.round(
                    controls.widthSegments), Math.round(controls.heightSegments), Math.round(
                    controls.depthSegments));
@@ -64,9 +65,9 @@ function init() {
   render();
   function render() {
     stats.update();
-    controls.mesh.rotation.y = step+=0.01
-    controls.mesh.rotation.x = step
-    controls.mesh.rotation.z = step
+    // controls.mesh.rotation.y = step+=0.01
+    // controls.mesh.rotation.x = step
+    // controls.mesh.rotation.z = step
     requestAnimationFrame(render);
     renderer.render(scene, camera);
   }

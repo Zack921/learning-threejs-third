@@ -33,6 +33,7 @@ function init() {
     // redraw function, updates the control UI and recreates the geometry.
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+        // 圆柱：顶部尺寸，底部尺寸，高度，沿半径分段，沿高度分段，是否不封闭，从x轴什么地方开始绘制球体，绘制多少
         return new THREE.CylinderGeometry(controls.radiusTop, controls.radiusBottom,
                   controls.height, controls.radialSegments, controls.heightSegments, controls.openEnded,
                   controls.thetaStart, controls.thetaLength

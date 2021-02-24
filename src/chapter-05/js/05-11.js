@@ -51,6 +51,7 @@ function init() {
                       2, 1, 0, 0, 3, 2, 1, 3, 0, 2, 3, 1
                     ];
           
+                    // 自定义多面体，顶点，索引，大小，
                     polyhedron = new THREE.PolyhedronGeometry(vertices, indices, controls.radius, controls.detail);
                     break;
                 }

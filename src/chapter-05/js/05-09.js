@@ -31,6 +31,7 @@ function init() {
     // redraw function, updates the control UI and recreates the geometry.
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+        // 甜甜圈：外圆环半径，内圆环半径，沿圆环长度分段，沿圆环宽度分段，绘制弧度
         return new THREE.TorusGeometry(controls.radius, controls.tube, Math.round(controls.radialSegments),
                 Math.round(controls.tubularSegments), controls.arc)
       });

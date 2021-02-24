@@ -33,6 +33,7 @@ function init() {
     // redraw function, updates the control UI and recreates the geometry.
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+        // 球体：半径，水平方向分段，竖直方向分段，从x轴什么地方开始绘制球体，绘制多少，从y轴什么地方开始绘制球体，绘制多少
         return new THREE.SphereGeometry(controls.radius, controls.widthSegments, controls.heightSegments,
                   controls.phiStart, controls.phiLength, controls.thetaStart, controls.thetaLength);
       });
@@ -64,9 +65,9 @@ function init() {
   render();
   function render() {
     stats.update();
-    controls.mesh.rotation.y = step+=0.01
-    controls.mesh.rotation.x = step
-    controls.mesh.rotation.z = step
+    // controls.mesh.rotation.y = step+=0.01
+    // controls.mesh.rotation.x = step
+    // controls.mesh.rotation.z = step
     requestAnimationFrame(render);
     renderer.render(scene, camera);
   }

@@ -33,6 +33,7 @@
       // redraw function, updates the control UI and recreates the geometry.
       this.redraw = function () {
         redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+          // 二维圆：半径，面数，从哪开始画圆，圆画多大
           return new THREE.CircleGeometry(self.radius, self.segments, self.thetaStart, self.thetaLength);
         });
       };

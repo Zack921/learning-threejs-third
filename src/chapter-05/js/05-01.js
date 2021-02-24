@@ -21,6 +21,7 @@ function init() {
     this.castShadow = true;
     this.groundPlaneVisible = true;
 
+    // 二维矩形: 宽度，高度，宽度段数，高度段数
     this.planeGeometry = new THREE.PlaneGeometry(20,20,4,4);
     this.width = this.planeGeometry.parameters.width;
     this.height = this.planeGeometry.parameters.height;

@@ -31,6 +31,7 @@ function init() {
     // redraw function, updates the control UI and recreates the geometry.
     this.redraw = function () {
       redrawGeometryAndUpdateUI(gui, scene, controls, function() {
+        // 二维圆环：内圆半径，外圆半径，对角线段数量(里面是个几边形)，沿着圆环长度所需的线段数量，从哪开始画圆，圆画多大
         return new THREE.RingGeometry(controls.innerRadius, controls.outerRadius, controls.thetaSegments,
                   controls.phiSegments, controls.thetaStart, controls.thetaLength)
       });
@@ -62,9 +63,9 @@ function init() {
   render();
   function render() {
     stats.update();
-    controls.mesh.rotation.y = step+=0.01
-    controls.mesh.rotation.x = step
-    controls.mesh.rotation.z = step
+    // controls.mesh.rotation.y = step+=0.01
+    // controls.mesh.rotation.x = step
+    // controls.mesh.rotation.z = step
     requestAnimationFrame(render);
     renderer.render(scene, camera);
   }
