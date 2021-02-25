@@ -1,3 +1,5 @@
+// 变形动画：通过关键帧的方式实现
+// 缺点：关键帧上的顶点位置重复存储，导致模型文件很大
 function init() {
   var stats = initStats();
   var renderer = initRenderer();
@@ -9,7 +11,7 @@ function init() {
 
   var trackballControls = initTrackballControls(camera, renderer);
   var clock = new THREE.Clock();
-
+  // AnimationMixer控制一个或多个动画模型
   var mixer = new THREE.AnimationMixer();
   var clipAction
   var frameMesh
@@ -18,6 +20,7 @@ function init() {
   initDefaultLighting(scene);
   var loader = new THREE.JSONLoader();
   loader.load('../../assets/models/horse/horse.js', function (geometry, mat) {
+      console.log('geometry: ', geometry);
       geometry.computeVertexNormals();
       geometry.computeMorphNormals();
 
@@ -30,8 +33,10 @@ function init() {
       mixer = new THREE.AnimationMixer( mesh );
       // or create a custom clip from the set of morphtargets
       // var clip = THREE.AnimationClip.CreateFromMorphTargetSequence( 'gallop', geometry.morphTargets, 30 );
+      // 将animationClip添加到mixer中管理，animationClip指定具体的动画动作
       animationClip = geometry.animations[0] 
       clipAction = mixer.clipAction( animationClip ).play();    
+      console.log('clipAction: ', clipAction);
       
       clipAction.setLoop(THREE.LoopRepeat);
       scene.add(mesh)
@@ -130,6 +135,7 @@ function init() {
     renderer.render(scene, camera)
 
     if (mixer && clipAction) {
+      // 混合器根据 时间差 控制向下一个关键帧移动多远
       mixer.update( delta );
       controls.time = mixer.time;
       controls.effectiveTimeScale = clipAction.getEffectiveTimeScale();

@@ -23,7 +23,9 @@ function init() {
   
   initDefaultLighting(scene);
   var loader = new THREE.GLTFLoader();
+  // GLTFLoader 会加载整个场景
   loader.load('../../assets/models/CesiumMan/CesiumMan.gltf', function (result) {
+    console.log('result: ', result);
     // correctly position the scene
     result.scene.scale.set(6, 6, 6);
     result.scene.translateY(-3);

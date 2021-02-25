@@ -23,6 +23,7 @@ function init() {
   initDefaultLighting(scene);
   var loader = new THREE.FBXLoader();
   loader.load('../../assets/models/salsa/salsa.fbx', function (result) {
+    console.log('result: ', result);
 
     
     // // correctly position the scene

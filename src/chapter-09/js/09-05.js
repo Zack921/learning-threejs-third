@@ -6,12 +6,12 @@ function init() {
   var clock = new THREE.Clock();
 
   initDefaultLighting(scene);  
-
+  // 飞行控制器，第一人称角度控制
   var flyControls = new THREE.FlyControls(camera);
   flyControls.movementSpeed = 25;
   flyControls.domElement = document.querySelector("webgl-output");
   flyControls.rollSpeed = Math.PI / 24;
-  flyControls.autoForward = true;
+  // flyControls.autoForward = true;
   flyControls.dragToLook = false;
 
   var loader = new THREE.OBJLoader();

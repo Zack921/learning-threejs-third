@@ -11,6 +11,7 @@ function init() {
   dirLight.position.set(50, 10, 0);
   scene.add(dirLight);
 
+  // 轨道控制器：围绕场景中心旋转和平移
   var orbitControls = new THREE.OrbitControls(camera);
   orbitControls.autoRotate = true;
 

@@ -6,7 +6,7 @@ function init() {
   var clock = new THREE.Clock();
 
   initDefaultLighting(scene);  
-
+  // 类似射击类控制，键盘移动角色，鼠标控制视角
   var fpControls = new THREE.FirstPersonControls(camera);
   fpControls.lookSpeed = 0.4;
   fpControls.movementSpeed = 20;

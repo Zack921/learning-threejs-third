@@ -23,6 +23,7 @@ function init() {
   initDefaultLighting(scene);
   var loader = new THREE.JSONLoader();
   loader.load('../../assets/models/hand/hand-8.json', function (result) {
+    console.log('result: ', result);
 
     var mesh = new THREE.SkinnedMesh(result, new THREE.MeshNormalMaterial({skinning: true}));
     mesh.scale.set(18, 18, 18)

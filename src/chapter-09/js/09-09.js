@@ -1,3 +1,4 @@
+// 用THREE创建animationClip
 function init() {
   var stats = initStats();
   var renderer = initRenderer();
@@ -28,6 +29,7 @@ function init() {
     var cubeTarget2 = new THREE.BoxGeometry(40, 2, 2);
 
     // define morphtargets and compute the morphnormal
+    // 将关键帧添加到 morphTargets 属性
     cubeGeometry.morphTargets[0] = {name: 't1', vertices: cubeGeometry.vertices};
     cubeGeometry.morphTargets[1] = {name: 't2', vertices: cubeTarget2.vertices};
     cubeGeometry.morphTargets[2] = {name: 't3', vertices: cubeTarget1.vertices};

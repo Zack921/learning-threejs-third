@@ -5,12 +5,14 @@ function init() {
   camera.lookAt(new THREE.Vector3(0, 0, 0));
 
   var posSrc = { pos: 1}  
-  var tween = new TWEEN.Tween(posSrc).to({pos: 0}, 2000); 
+  // Tween.min.js
+  var tween = new TWEEN.Tween(posSrc).to({pos: 0}, 2000); // 缩小
   tween.easing(TWEEN.Easing.Bounce.InOut); 
  
-  var tweenBack = new TWEEN.Tween(posSrc).to({pos: 1}, 2000); 
+  var tweenBack = new TWEEN.Tween(posSrc).to({pos: 1}, 2000); // 放大
   tweenBack.easing(TWEEN.Easing.Bounce.InOut); 
   
+  // 衔接两个补间，产生循环效果
   tweenBack.chain(tween); 
   tween.chain(tweenBack); 
 
@@ -27,6 +29,7 @@ function init() {
       var oldPosX = origPosition.getX(i);
       var oldPosY = origPosition.getY(i);
       var oldPosZ = origPosition.getZ(i);
+      // TWEEN.update 会更新 posSrc
       positionArray.setX(i, oldPosX * posSrc.pos);
       positionArray.setY(i, oldPosY * posSrc.pos);
       positionArray.setZ(i, oldPosZ * posSrc.pos);
@@ -47,6 +50,7 @@ function init() {
     });
 
     // copy the original position, so we can referene that when tweening
+    // 备份原始值
     var origPosition = geometry.attributes['position'].clone()
     geometry.origPosition = origPosition
 

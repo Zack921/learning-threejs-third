@@ -17,12 +17,19 @@ function init() {
   var tween
 
   loader.load('../../assets/models/hand/hand-1.js', function (geometry, mat) {
+    // {
+    //   animations,
+    //   bones,
+    // }
+    console.log('geometry: ', geometry);
     var mat = new THREE.MeshLambertMaterial({color: 0xF0C8C9, skinning: true});
+    // 带有蒙皮的网格对象
     mesh = new THREE.SkinnedMesh(geometry, mat);
     mesh.scale.set(15,15,15);
     mesh.position.x = -5;
     mesh.rotateX(0.5*Math.PI);
     mesh.rotateZ(0.3*Math.PI);
+    console.log('mesh.skeleton: ', mesh.skeleton);
     scene.add(mesh);
     startAnimation();
 
@@ -47,7 +54,7 @@ function init() {
 
   var onUpdate = function () {
     var pos = this.pos;
-
+    // 手动调节骨头从而带动相应顶点运动
     // rotate the fingers
     mesh.skeleton.bones[5].rotation.set(0, 0, pos);
     mesh.skeleton.bones[6].rotation.set(0, 0, pos);
@@ -66,8 +73,8 @@ function init() {
     tween = new TWEEN.Tween({pos: -1.5})
     .to({pos: 0}, 3000)
     .easing(TWEEN.Easing.Cubic.InOut)
-    .yoyo(true)
-    .repeat(Infinity)
+    .yoyo(true) // 运行完后反向运行
+    .repeat(Infinity) // loop
     .onUpdate(onUpdate);   
 
     tween.start();

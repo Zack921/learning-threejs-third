@@ -112,11 +112,13 @@ function init() {
     var tube;
 
     function onDocumentMouseDown(event) {
-
+        // 基于点击位置创建向量
         var vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
+        // 将屏幕坐标转换成三维场景中的坐标
         vector = vector.unproject(camera);
-
+        // 从摄像机位置向点击区域发射光线
         var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+        // 判断指定的对象是否被光线照射到
         var intersects = raycaster.intersectObjects([sphere, cylinder, cube]);
 
         if (intersects.length > 0) {
