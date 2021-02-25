@@ -76,6 +76,7 @@ function init() {
 
   var controls = new function () {
     this.exportScene = function () {
+      // 保存整个场景
       localStorage.setItem('scene', JSON.stringify(scene.toJSON()));
       console.log(localStorage.getItem("scene"));
     };
@@ -85,6 +86,7 @@ function init() {
     };
 
     this.importScene = function () {
+      // 加载整个场景
       var json = (localStorage.getItem('scene'));
 
       if (json) {

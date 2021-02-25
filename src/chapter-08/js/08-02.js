@@ -38,9 +38,11 @@ function init() {
         var geometry = new THREE.Geometry();
         for (var i = 0; i < controls.numberOfObjects; i++) {
           var cubeMesh = addcube();
-          cubeMesh.updateMatrix();
+          cubeMesh.updateMatrix(); // 猜测是为了把变换矩阵放到matrix属性
+          // 将多个网格合并成一个，这样THREE只用管理一个网格，性能优化
           geometry.merge(cubeMesh.geometry, cubeMesh.matrix);
         }
+        // 不能为每个几何体单独添加材质了，也不能再单独操控其中某个对象了
         scene.add(new THREE.Mesh(geometry, cubeMaterial));
 
       } else {

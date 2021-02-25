@@ -54,6 +54,8 @@ function init() {
       cube.scale.set(controls.cubeScale, controls.cubeScale, controls.cubeScale);
 
       // also create a group, only used for rotating
+      // group 为一个网格组
+      // 物体被添加到组对象后，position是相对于组的
       group = new THREE.Group();
       group.position.set(controls.groupPosX, controls.groupPosY, controls.groupPosZ);
       group.scale.set(controls.groupScale, controls.groupScale, controls.groupScale);

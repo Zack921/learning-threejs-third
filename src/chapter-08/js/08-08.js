@@ -6,8 +6,10 @@ function init() {
   camera.lookAt(new THREE.Vector3(0, 45, 0));
 
   // load the model
+  // Collada模型：不仅定义几何体，也定义材质 和 场景，光源
   var loader = new THREE.ColladaLoader();
   loader.load("../../assets/models/medieval/Medieval_building.DAE", function (result) {
+    console.log('result: ', result);
 
     var sceneGroup = result.scene;
     sceneGroup.children.forEach(function (child) {

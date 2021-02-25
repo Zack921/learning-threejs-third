@@ -5,8 +5,11 @@ function init() {
   var loaderScene = new BaseLoaderScene(camera);
   camera.lookAt(new THREE.Vector3(0, 15, 0));
 
+  // 需要额外引入OBJLoader，只加载几何体 
+  // OBJ一般用于定义单独的物体
   var loader = new THREE.OBJLoader();
   loader.load('../../assets/models/pinecone/pinecone.obj', function (mesh) {
+    console.log('mesh: ', mesh);
 
     var material = new THREE.MeshLambertMaterial({
       color: 0x5C3A21
@@ -17,7 +20,7 @@ function init() {
     // three.js needs for rendering.
     mesh.children.forEach(function (child) {
       child.material = material;
-      child.geometry.computeVertexNormals();
+      child.geometry.computeVertexNormals(); // 重新计算法线，确保MeshLambertMaterial正确显示
       child.geometry.computeFaceNormals();
     });
 

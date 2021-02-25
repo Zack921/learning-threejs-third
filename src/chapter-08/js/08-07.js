@@ -103,15 +103,18 @@ function init() {
   var camera = initCamera(new THREE.Vector3(50, 50, 50));
   var loaderScene = new BaseLoaderScene(camera);
   camera.lookAt(new THREE.Vector3(0, 15, 0));
-
+  // MTLLoader用于加载材质
   var mtlLoader = new THREE.MTLLoader();
+  // 设置纹理路径，因为有可能需要引用图片
   mtlLoader.setPath("../../assets/models/butterfly/")
   mtlLoader.load('butterfly.mtl', function (materials) {
+    console.log('materials: ', materials);
     materials.preload();
-
+    // 加载几何体
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
     objLoader.load('../../assets/models/butterfly/butterfly.obj', function (object) {
+      console.log('object: ', object);
 
       // move wings to more horizontal position
       [0, 2, 4, 6].forEach(function (i) {
@@ -125,7 +128,7 @@ function init() {
       // configure the wings,
       var wing2 = object.children[5];
       var wing1 = object.children[4];
-
+      // 这里微调一些材质属性
       wing1.material.opacity = 0.9;
       wing1.material.transparent = true;
       wing1.material.depthTest = false;

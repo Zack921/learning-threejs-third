@@ -49,12 +49,14 @@ function init() {
       var json = localStorage.getItem("json");
 
       if (json) {
+        // json格式是THREE内部使用的，不通用
         var loadedGeometry = JSON.parse(json);
         var loader = new THREE.ObjectLoader();
-
+        // 从json数据生成对象,也可以直接loader.load('./*.json')
         loadedMesh = loader.parse(loadedGeometry);
         loadedMesh.position.x -= 40;
         scene.add(loadedMesh);
+        console.log('scene: ', scene);
       }
     }
   };

@@ -13,7 +13,7 @@ function init() {
 
     var group = new THREE.Object3D();
 
-    // create the atoms
+    // create the atoms 表示每个原子的位置和颜色
     var geometryAtoms = geometries.geometryAtoms;
     
     for (i = 0; i < geometryAtoms.attributes.position.count; i++) {
@@ -37,7 +37,7 @@ function init() {
       group.add(mesh);
     }
 
-    // create the bindings
+    // create the bindings 表示原子之间的键
     var geometryBonds = geometries.geometryBonds;
 
     for (var j = 0; j < geometryBonds.attributes.position.count; j += 2) {
