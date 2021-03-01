@@ -23,6 +23,8 @@ function init() {
     displacementBias: 0,
   };
 
+  // 使用移位贴图可以改变顶点的位置，图中越亮的点会是顶点位移越远
+  // Ps：原始模型必须具有大量顶点，否则位移的效果会和移位贴图不相象
   var sphere = new THREE.SphereGeometry(8, 180, 180)
   var sphereMaterial = new THREE.MeshStandardMaterial({
       map: textureLoader.load("../../assets/textures/w_c.jpg"),
@@ -41,6 +43,7 @@ function init() {
 
   scene.add(sphereMesh);
 
+  // 控制顶点位移程度
   gui.add(controls, "displacementScale", -5, 5, 0.01).onChange(function(e) {sphereMaterial.displacementScale = e});
   gui.add(controls, "displacementBias", -5, 5, 0.01).onChange(function(e) {sphereMaterial.displacementBias = e});
 

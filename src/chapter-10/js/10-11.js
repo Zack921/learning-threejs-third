@@ -19,12 +19,14 @@ function init() {
   };
 
   loader.load("../../assets/models/baymax/bm.json", function (geometry) {
+    console.log('geometry: ', geometry);
 
     geometry.computeFaceNormals();
     geometry.computeVertexNormals(false);
     geometry.normalsNeedUpdate = true;
     geometry.faceVertexUvs.push(geometry.faceVertexUvs[0]);
 
+    // 利用 环境光遮挡贴图 实现阴影，避免了动态计算阴影的消耗，贴图信息决定了模型特定部分数 THREE.AmbientLight 光源影响的程度
     var material = new THREE.MeshStandardMaterial({
       aoMap: textureLoader.load("../../assets/models/baymax/ambient.png"),
       aoMapIntensity: 2,

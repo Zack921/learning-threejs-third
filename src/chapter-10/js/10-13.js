@@ -55,11 +55,16 @@ function init() {
   });
 
   var cubeMaterialWithMetalMap = cubeMaterial.clone();
+  // 金属光泽贴图
+  // 金属光泽度属性metalness的值会先与来自metalnessMap贴图中的值相乘
   cubeMaterialWithMetalMap.metalnessMap = textureLoader.load("../../assets/textures/engraved/roughness-map.jpg")
 
   var cubeMaterialWithRoughnessMap = cubeMaterial.clone();
+  // 粗糙度贴图
+  // 金属光泽度属性metalness的值会先与来自metalnessMap贴图中的值相乘
   cubeMaterialWithRoughnessMap.roughnessMap = textureLoader.load("../../assets/textures/engraved/roughness-map.jpg")
 
+  // 用于同一张图设置在相反的属性上，呈现的效果就是反的 
   var cube1 = addGeometryWithMaterial(scene, sphere, 'metal', gui, controls, cubeMaterialWithMetalMap);
   cube1.position.x = -10;
   cube1.rotation.y = 1/3*Math.PI;

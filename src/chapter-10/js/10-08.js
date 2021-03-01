@@ -27,6 +27,7 @@ function init() {
       roughness: 0.07
   });
 
+  // 使用凹凸贴图-只包含像素的相对高度，没有任何倾斜的方向信息
   var cubeMaterialWithBumpMap = cubeMaterial.clone();
   cubeMaterialWithBumpMap.bumpMap = textureLoader.load("../../assets/textures/stone/stone-bump.jpg")
 

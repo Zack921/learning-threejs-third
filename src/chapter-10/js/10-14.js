@@ -23,17 +23,19 @@ function init() {
   };
 
   var sphere = new THREE.SphereGeometry(8, 180, 180)
+  // alpha贴图：控制物体表面的透明度，贴图中黑色部门代表该部分完全透明，白色代表完全不透明
   var sphereMaterial = new THREE.MeshStandardMaterial({
       alphaMap: textureLoader.load("../../assets/textures/alpha/partial-transparency.png"),
       metalness: 0.02,
       roughness: 0.07,
       color: 0xffffff,
-      alphaTest: 0.5
+      alphaTest: 0.5,
+      side: THREE.DoubleSide,
   });
 
   sphereMaterial.alphaMap.wrapS = THREE.RepeatWrapping;
   sphereMaterial.alphaMap.wrapT = THREE.RepeatWrapping;
-  sphereMaterial.alphaMap.repeat.set(8, 8);
+  sphereMaterial.alphaMap.repeat.set(8, 8);// x,y方向都重复8次
 
 
   var mesh = addGeometryWithMaterial(scene, sphere, 'sphere', gui, controls, sphereMaterial);

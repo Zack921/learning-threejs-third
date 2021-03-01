@@ -23,6 +23,8 @@ function init() {
   var date = new Date();
   var pn = new Perlin('rnd' + date.getTime());
 
+  // 用一些随机噪声来填充该画布，从而得到一个随机贴图
+  // http://en.wikipedia.org/wiki/Perlin_noise
   fillWithPerlin(pn, ctx);
   function fillWithPerlin(perlin, ctx) {
       for (var x = 0; x < 300; x++) {

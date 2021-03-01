@@ -14,6 +14,8 @@ function init() {
     sceneGroup.scale.set(7,7,7);
     var plane = sceneGroup.getObjectByName("Plane")
     plane.geometry.faceVertexUvs.push(plane.geometry.faceVertexUvs[0]);
+
+    // 光照贴图：决定模型哪些部分需要补充更多光照
     plane.material = new THREE.MeshBasicMaterial({
       map: textureLoader.load("../../assets/textures/general/floor-wood.jpg"),
       lightMap: textureLoader.load("../../assets/textures/lightmap/lightmap.png"),

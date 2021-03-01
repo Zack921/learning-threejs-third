@@ -20,6 +20,8 @@ function init() {
   var earthMaterial = new THREE.MeshPhongMaterial({
       map: textureLoader.load("../../assets/textures/earth/Earth.png"),
       normalMap: textureLoader.load("../../assets/textures/earth/EarthNormal.png"),
+      // 使用高光贴入指定模型中哪些部分具有高光效果
+      // 黑色代表无高光，白色代表有完全的高光效果
       specularMap: textureLoader.load("../../assets/textures/earth/EarthSpec.png"),
       normalScale: new THREE.Vector2(6,6)
   });

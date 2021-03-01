@@ -33,8 +33,8 @@ function init() {
   });
 
   var jsonLoader = new THREE.JSONLoader();
-  // jsonLoader.load("../../assets/models/uv/uv-changed.json", function(model) {
-  jsonLoader.load("../../assets/models/uv/uv-standard.json", function(model) {
+  jsonLoader.load("../../assets/models/uv/uv-changed.json", function(model) {
+  // jsonLoader.load("../../assets/models/uv/uv-standard.json", function(model) {
     var mesh = new THREE.Mesh(model, material)
     mesh.scale.set(8, 8, 8);
     mesh.rotation.y += 0.3*Math.PI;

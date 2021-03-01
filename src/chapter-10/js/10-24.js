@@ -16,6 +16,7 @@ function init() {
   scene.add(new THREE.AmbientLight(0x444444));
 
   var video = document.getElementById( 'video' );
+  // 视频纹理
   var texture = new THREE.VideoTexture(video);
   texture.minFilter = THREE.LinearFilter;
   texture.magFilter = THREE.LinearFilter;

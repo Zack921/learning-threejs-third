@@ -25,7 +25,9 @@ function init() {
   };
 
   var cubeMaterial = new THREE.MeshStandardMaterial({
-      emissive: 0xffffff,
+      // 自发光贴图：控制模型表面实现自发光效果
+      // ps：只影响物体本身，并不是一个光源
+      emissive: 0xffffff, // 可以调节发光的颜色
       emissiveMap: textureLoader.load("../../assets/textures/emissive/lava.png"),
       normalMap: textureLoader.load("../../assets/textures/emissive/lava-normals.png"),
       metalnessMap: textureLoader.load("../../assets/textures/emissive/lava-smoothness.png"),

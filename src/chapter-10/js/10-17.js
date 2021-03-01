@@ -19,6 +19,11 @@ function init() {
   };
   var textureLoader = new THREE.TextureLoader();
 
+  // 可以直接使用全景图片(一般是球形等距圆柱投影图)，需要一些额外的配置
+  // 也可以使用工具将全景图片(一般是球形等距圆柱投影图)转换成分离的图片文件
+  // https://jaxry.github.io/panorama-to-cubemap/
+  // https://www.360toolkit.co/convert-spherical-equirectangular-tocubemap.html
+  // 注意顺序
   var urls = [
       '../../assets/textures/cubemap/flowers/right.png',
       '../../assets/textures/cubemap/flowers/left.png',
@@ -28,10 +33,13 @@ function init() {
       '../../assets/textures/cubemap/flowers/back.png'
   ];
 
+  // 创建一个天空盒(cubemap)设置到场景的背景上
+  // cubemap既可以用于模型的环境贴图，也可以用于场景背景
   var cubeLoader = new THREE.CubeTextureLoader();
   scene.background = cubeLoader.load(urls);
   
   var cubeMaterial = new THREE.MeshStandardMaterial({
+      // 用了环境贴图就可以产生镜面反射的效果了
       envMap: scene.background,
       color: 0xffffff,
       metalness: 1,
@@ -55,6 +63,7 @@ function init() {
 
   gui.add({refraction: false}, "refraction").onChange(function(e) {
     if (e) {
+      // 改成环境折射效果
       scene.background.mapping = THREE.CubeRefractionMapping;
     } else {
       scene.background.mapping = THREE.CubeReflectionMapping;

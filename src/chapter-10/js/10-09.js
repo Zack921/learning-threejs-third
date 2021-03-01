@@ -37,6 +37,7 @@ function init() {
       roughness: 0.07
   });
 
+  // 使用法线贴图
   var cubeMaterialWithNormalMap = cubeMaterial.clone();
   cubeMaterialWithNormalMap.normalMap = textureLoader.load("../../assets/textures/general/plaster-normal.jpg")
 

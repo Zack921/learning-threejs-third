@@ -29,12 +29,12 @@ function init() {
 
     updateRepeat: function (e) {
 
-      cubeMesh.material.map.repeat.set(controls.repeatX, controls.repeatY)
+      cubeMesh.material.map.repeat.set(controls.repeatX, controls.repeatY) // 设置x,y轴方向上重复次数
       sphereMesh.material.map.repeat.set(controls.repeatX, controls.repeatY)
       polyhedronMesh.material.map.repeat.set(controls.repeatX, controls.repeatY)
 
       if (controls.repeatWrapping) {
-        cubeMesh.material.map.wrapS = THREE.RepeatWrapping;
+        cubeMesh.material.map.wrapS = THREE.RepeatWrapping; // 允许纹理重复
         cubeMesh.material.map.wrapT = THREE.RepeatWrapping;
         sphereMesh.material.map.wrapS = THREE.RepeatWrapping;
         sphereMesh.material.map.wrapT = THREE.RepeatWrapping;
