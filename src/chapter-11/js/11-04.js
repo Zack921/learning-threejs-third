@@ -33,6 +33,7 @@ function init() {
   marsRenderPass.clear = false;
 
   // setup the mask
+  // 可以单独对每个场景设置通道
   var clearMask = new THREE.ClearMaskPass();
   var earthMask = new THREE.MaskPass(sceneEarth, camera);
   var marsMask = new THREE.MaskPass(sceneMars, camera);
@@ -47,7 +48,7 @@ function init() {
   effectCopy.renderToScreen = true;
   
   var composer = new THREE.EffectComposer(renderer);
-  composer.renderTarget1.stencilBuffer = true;
+  composer.renderTarget1.stencilBuffer = true; // 模板缓存（stencil buffer）是一种特殊类型的缓存，用于限制渲染区域，启用模板缓存后，就可以使用掩码了
   composer.renderTarget2.stencilBuffer = true;
   composer.addPass(bgRenderPass);
   composer.addPass(earthRenderPass);

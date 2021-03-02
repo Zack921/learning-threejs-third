@@ -90,6 +90,7 @@ function init() {
     };
 
     var renderPass = new THREE.RenderPass(scene, camera);
+    // 景深效果
     var bokehPass = new THREE.BokehPass(scene, camera, params)
     bokehPass.renderToScreen = true;
   

@@ -36,6 +36,7 @@ function init() {
   scene.add(totalGroup);
 
   var renderPass = new THREE.RenderPass(scene, camera);
+  // 环境光遮挡效果，用于动态场景十分消耗gpu
   var aoPass = new THREE.SSAOPass(scene, camera);
   aoPass.renderToScreen = true;
 

@@ -15,6 +15,7 @@ function init() {
 
   // setup effects
   var renderPass = new THREE.RenderPass(scene, camera);
+  // 自定义着色器
   var customGrayScale = new THREE.ShaderPass(THREE.CustomGrayScaleShader);
   var customBit = new THREE.ShaderPass(THREE.CustomBitShader);
   var effectCopy = new THREE.ShaderPass(THREE.CopyShader);

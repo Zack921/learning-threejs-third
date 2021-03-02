@@ -22,11 +22,13 @@ function init() {
   var effectCopy = new THREE.ShaderPass(THREE.CopyShader);
   effectCopy.renderToScreen = true;
 
+  // 输出默认场景
   var composer = new THREE.EffectComposer(renderer);
   composer.addPass(renderPass);
   composer.addPass(effectCopy);
 
   // reuse the rendered scene from the composer
+  // 利用纹理通道，复用 第一个组合器输出的结果
   var renderedScene = new THREE.TexturePass(composer.renderTarget2); 
 
   // define the composers
@@ -34,6 +36,7 @@ function init() {
   effectFilmComposer.addPass(renderedScene);
   effectFilmComposer.addPass(effectFilm);
 
+  // 泛光效果
   var bloomComposer = new THREE.EffectComposer(renderer);
   bloomComposer.addPass(renderedScene);
   bloomComposer.addPass(bloomPass);
@@ -67,9 +70,10 @@ function init() {
     earth.rotation.y += 0.001;
     pivot.rotation.y += -0.0003;
 
-    renderer.autoClear = false;
+    renderer.autoClear = false; // 采用手动清除
     renderer.clear();
     
+    // 设置渲染的视图区域
     renderer.setViewport(0, 0, halfWidth, halfHeight);
     effectFilmComposer.render(delta);
 

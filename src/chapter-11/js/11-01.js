@@ -14,10 +14,12 @@ function init() {
   var pivot = earthAndLight.pivot;
 
   // setup effects
-  var renderPass = new THREE.RenderPass(scene, camera);
-  var effectFilm = new THREE.FilmPass(0.8, 0.325, 256, false);
-  effectFilm.renderToScreen = true;
+  var renderPass = new THREE.RenderPass(scene, camera); // 渲染通道，需要添加，不然就无法渲染，这个通道会渲染场景，但是渲染结果不会输出到屏幕上
+  var effectFilm = new THREE.FilmPass(0.8, 0.325, 256, false); // 电视屏幕效果
+  effectFilm.renderToScreen = true; // 将结果输出到屏幕上
 
+  // 效果组合器，可以添加后期处理通道
+  // 所有后期效果都是在已经渲染完成一帧场景画面之后添加的
   var composer = new THREE.EffectComposer(renderer);
   composer.addPass(renderPass);
   composer.addPass(effectFilm);
