@@ -121,6 +121,7 @@ function createHeightMap(pn) {
 
   var ground_material = Physijs.createMaterial(new THREE.MeshStandardMaterial({map: THREE.ImageUtils.loadTexture('../../assets/textures/ground/grasslight-big.jpg')}), 0.3, 0.8);
   var ground_geometry = new THREE.PlaneGeometry(220, 200, 100, 100);
+  // 随机设置顶点的z值
   for (var i = 0; i < ground_geometry.vertices.length; i++) {
       var vertex = ground_geometry.vertices[i];
       var value = pn.noise(vertex.x / 12, vertex.y / 12, 0);

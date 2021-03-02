@@ -1,7 +1,8 @@
 function init() {
 
-  Physijs.scripts.worker = '../../libs/other/physijs/physijs_worker.js';
-  Physijs.scripts.ammo = './ammo.js';
+  // 给计算任务单独开个web worker线程，避免阻塞主线程
+  Physijs.scripts.worker = '../../libs/other/physijs/physijs_worker.js'; // 要执行的任务线程
+  Physijs.scripts.ammo = './ammo.js'; // Physijs内部使用的ammo物理引擎库
 
   // use the defaults
   var stats = initStats();

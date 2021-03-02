@@ -1,7 +1,8 @@
 function init() {
 
-  Physijs.scripts.worker = '../../libs/other/physijs/physijs_worker.js';
-  Physijs.scripts.ammo = './ammo.js';
+  // 给计算任务单独开个web worker线程，避免阻塞主线程
+  Physijs.scripts.worker = '../../libs/other/physijs/physijs_worker.js'; // 要执行的任务线程
+  Physijs.scripts.ammo = './ammo.js'; // Physijs内部使用的ammo物理引擎库
 
 
   // use the defaults
@@ -39,7 +40,7 @@ function init() {
     })));
 
     stone.position.copy(point);
-    stone.lookAt(scene.position);
+    stone.lookAt(scene.position); // 调用lookAt方法来设置它们的角度
     
     stone.position.y = 3.5;
     stone.castShadow = true;
@@ -51,6 +52,7 @@ function init() {
 });
 
 // set the initial rotiation of a stone so it'll fall down
+// 推一下第一块骨牌
 stones[0].rotation.x = 0.4;
 stones[0].__dirtyRotation = true;
 
@@ -97,7 +99,7 @@ function createGroundAndWalls(scene) {
           ),
           .9, .3);
 
-  var ground = new Physijs.BoxMesh(new THREE.BoxGeometry(60, 1, 60), ground_material, 0);
+  var ground = new Physijs.BoxMesh(new THREE.BoxGeometry(60, 1, 60), ground_material, 0); // 将参数设置为0，是为了避免地面受场景中重力的影响而下落。
   ground.castShadow = true;
   ground.receiveShadow = true;
 
