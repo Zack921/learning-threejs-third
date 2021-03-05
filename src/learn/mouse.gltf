@@ -1,0 +1,76 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.4.40",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "sun_pos_properties" : {
+                    "day_of_year" : 23
+                }
+            },
+            "name" : "upload",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "extras" : {
+                "blenderkit" : {
+                    "name" : "Gaming Mouse",
+                    "name_changed" : 0,
+                    "name_old" : "Gaming Mouse",
+                    "thumbnail" : "//Mouse.png",
+                    "has_thumbnail" : 1,
+                    "thumbnail_generating_state" : "",
+                    "description" : "Gaming Mouse",
+                    "tags" : "Mouse",
+                    "condition" : 1,
+                    "is_free" : 1,
+                    "manufacturer" : "",
+                    "work_hours" : 3,
+                    "texture_resolution_max" : 0,
+                    "texture_resolution_min" : 0,
+                    "uv" : 1,
+                    "texture_count" : 0,
+                    "total_megapixels" : 0,
+                    "node_count" : 54,
+                    "engine" : 0,
+                    "materials" : "Material, Material.010, Material.012, Material.001, main body, Material.005, Material.007, Material.009, main body.001, Material.003, Material.016, Material.013, Material.014, Material.004, Material.008, ",
+                    "shaders" : "principled, emission, diffuse, mix shader, glass, transparent, glossy, ",
+                    "dimensions" : [
+                        0.03571107238531113,
+                        0.059731509536504745,
+                        0.017509697005152702
+                    ],
+                    "bbox_min" : [
+                        -0.018339451402425766,
+                        -0.029989542439579964,
+                        8.621608458270202e-07
+                    ],
+                    "bbox_max" : [
+                        0.01737161912024021,
+                        0.029741967096924782,
+                        0.017510559409856796
+                    ],
+                    "face_count" : 52877,
+                    "face_count_render" : 216071,
+                    "mesh_poly_type" : 1,
+                    "manifold" : 0,
+                    "modifiers" : "subsurf,solidify,",
+                    "object_count" : 16,
+                    "upload_state" : "preparing upload",
+                    "report" : "",
+                    "asset_base_id" : "66f55354-2b1f-4707-8846-edac0e0be62f",
+                    "id" : "33289e49-22a9-4473-bf3e-a9a5559a1ad6",
+                    "uploading" : 0
+                }
+            },
+            "name" : "Gaming Mouse"
+        }
+    ]
+}
