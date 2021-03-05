@@ -3,6 +3,7 @@ function init() {
   var renderer = initRenderer();
   var camera = initCamera();
   var scene = new THREE.Scene();
+  let mixer = null;
   scene.add(new THREE.AmbientLight(0x333333));
 
   var axes = new THREE.AxesHelper(20);
@@ -16,12 +17,16 @@ function init() {
   initDefaultLighting(scene);
   var loader = new THREE.GLTFLoader();
   // GLTFLoader 会加载整个场景
-  loader.load('mouse.gltf', function (result) {
+  loader.load('human.gltf', function (result) {
     console.log('result: ', result);
-    // result.scene.children[2].position.set(2, 0, 0);
-    // result.scene.children[2].scale.set(50,50,50);
-    scene.add(result.scene.children[0]);
+
+    scene.add(result.scene);
     console.log('scene: ', scene);
+
+    mixer = new THREE.AnimationMixer( result.scene );
+    animationClip = result.animations[0];
+    clipAction = mixer.clipAction( animationClip ).play();    
+    animationClip = clipAction.getClip();
 
   });
 
@@ -30,9 +35,11 @@ function init() {
     stats.update();
     var delta = clock.getDelta();
     trackballControls.update(delta);
-    // const torus = scene.getObjectByName( "Torus" );
-    // if(torus) torus.rotation.y += 0.01;
     requestAnimationFrame(render);
     renderer.render(scene, camera)
+
+    if (mixer && clipAction) {
+      mixer.update( delta );
+    }
   }   
 }
